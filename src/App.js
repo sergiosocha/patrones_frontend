@@ -38,7 +38,8 @@ function App() {
     <div className="App">
       <ParticlesBackground />
       <div className="content">
-        <h1>Bienvenido a nuestra Landing Page</h1>
+        <h1>Bienvenido a patrones</h1>
+        <h2>Ingrese su nombre</h2>
 
         <form onSubmit={handleSubmit}>
           <input type="text" placeholder="Ingresa tu nombre" value={name} onChange={(e) => setName(e.target.value)} />
