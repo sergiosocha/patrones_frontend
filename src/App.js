@@ -24,43 +24,43 @@ function App() {
 
   const saveUser = async (nombre) => {
     try {
-      const response = await fetch("http://localhost:8080/user", {
+      const response = await fetch("http://161.35.253.122:8080/user", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ nombre }),
-        credentials: "include",  // Incluir credenciales si es necesario
-      })
+        credentials: "include",
+      });
 
       if (!response.ok) {
-        throw new Error("Error al guardar el usuario")
+        throw new Error("Error al guardar el usuario");
       }
 
-      const data = await response.json()
-      console.log("Usuario guardado:", data)
+      const data = await response.json();
+      console.log("Usuario guardado:", data);
     } catch (error) {
-      console.error("Error:", error)
-      setError("Error al guardar el usuario. Por favor, intenta de nuevo.")
+      console.error("Error:", error);
+      setError("Error al guardar el usuario. Por favor, intenta de nuevo.");
     }
-  }
+  };
 
   const fetchUsers = async () => {
     try {
-      const response = await fetch("http://localhost:8080/user/todos", {
+      const response = await fetch("http://161.35.253.122:8080/user/todos", {  // Cambiar localhost por la IP pública
         method: "GET",
-        credentials: "include",  // Incluir credenciales si es necesario
-      })
+        credentials: "include",
+      });
       if (!response.ok) {
-        throw new Error("Error al obtener los usuarios")
+        throw new Error("Error al obtener los usuarios");
       }
-      const data = await response.json()
-      setUsers(data)
+      const data = await response.json();
+      setUsers(data);
     } catch (error) {
-      console.error("Error:", error)
-      setError("Error al cargar los usuarios. Por favor, recarga la página.")
+      console.error("Error:", error);
+      setError("Error al cargar los usuarios. Por favor, recarga la página.");
     }
-  }
+  };
 
   return (
       <div className="App">
